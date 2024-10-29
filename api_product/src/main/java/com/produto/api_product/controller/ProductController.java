@@ -14,23 +14,23 @@ public class ProductController {
     @Autowired
     private ProductRepository repository;
 
-    @GetMapping("/listar")
+    @GetMapping("/")
     private String productList (Model model){
 
         model.addAttribute("products", repository.findAll());
-        return "list";
+        return "lista";
 
     }
 
-    @PostMapping("/cadastrar")
+    @GetMapping("/cadastro")
     public String showFormulary(Model model){
 
         model.addAttribute("product", new Product());
-        return "register";
+        return "cadastro";
 
     }
 
-    @PostMapping("/cadastrar")
+    @PostMapping("/cadastro")
     public String register(Product product){
 
         repository.save(product);

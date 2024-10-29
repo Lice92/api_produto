@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Produto</title>
     <link rel="stylesheet" th:href="@{css/style.css}">
 </head>
+
 <body>
     <div class="container">
         
         <h1>Cadastro Produto</h1>
         
-        <form action="">
+        <form th:action="@{/cadastro}" th:object="${product}" method="post">
             <label for="name">Nome: </label>
-            <input type="text" id="name" placeholder="Digite o nome do produto:" required>
+            <input type="text" id="name" th:field="*{name}" placeholder="Digite o nome do produto:" required>
 
             <label for="price">Preço: </label>
-            <input type="text" id="price" placeholder="Digite o preço do produto:" required>
+            <input type="text" id="price" th:field="*{price}" placeholder="Digite o preço do produto:" required>
 
-            <button>Cadastrar</button>
+            <button type="submit">Cadastrar</button>
         </form>
 
         <a th:href="@{/lista}">Voltar para a lista de produtos</a>
