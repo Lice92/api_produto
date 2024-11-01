@@ -18,7 +18,7 @@ public class ProductController {
     private String productList (Model model){
 
         model.addAttribute("products", repository.findAll());
-        return "lista";
+        return "index";
 
     }
 
